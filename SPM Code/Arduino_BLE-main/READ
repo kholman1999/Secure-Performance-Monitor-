@@ -1,0 +1,34 @@
+Pinouts see
+https://os.mbed.com/platforms/ST-Nucleo-F767ZI/ for pin positions
+https://github.com/ARMmbed/mbed-os/blob/master/targets/TARGET_STM/TARGET_STM32F7/TARGET_STM32F767xI/TARGET_NUCLEO_F767ZI/PinNames.h for pin names
+
+If you get the entire board the lay out is with the SD card module to the left
+
+
+|         SD MODULE      |XXX|     GPS     |XXXXX|  I2C  |       BLE           |
+
+|CS|SCK|MOSI|MISO|VCC|GND|X|X|GPS_TX|GPS_RX|X|X|X|SDA|SCL|VCC|GND|BLE_TX|BLE_RX|
+
+Vcc and GND are connected only power one pair.
+
+BLE connections
+PD_6/D52 is RX, remember MCU RX -> module TX
+PD_5/D53 is TX, MCU TX->RX
+
+GPS connections
+DO is RX
+D1 is TX
+Both are labeled on board, take a look
+
+REQUIRED LIBRARIES
+https://github.com/mikalhart/TinyGPSPlus
+
+REQUIRED BOARD MANAGER
+https://github.com/stm32duino/BoardManagerFiles/raw/master/STM32/package_stm_index.json
+
+Board options (under tools)
+Nucleo 144, F767ZI, Enabled (generic Serial), None, Low/Full speed, default, default, mass storage
+
+GET CUBE PROGRAMMER HERE
+https://www.st.com/en/development-tools/stm32cubeprog.html
+Nothing in terminal? -> reflash firmware!
